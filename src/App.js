@@ -1,11 +1,11 @@
 // import BaiTapLayout from "./BaiTapLayout/BaiTapLayout";
 // import StyleComponent from "./StyleComponent/StyleComponent";
 
-// import BTQuanLySanPham from "./Props/BTQuanLySanPham/BTQuanLySanPham";
+import BTQuanLySanPham from "./Props/BTQuanLySanPham/BTQuanLySanPham";
 
 // import DemoProps from "./Props/DemoProps";
 
-import BaiTapThucHanhLayout from "./BaiTapThucHanhLayout/BaiTapThucHanhLayout";
+// import BaiTapThucHanhLayout from "./BaiTapThucHanhLayout/BaiTapThucHanhLayout";
 // import RenderWithMap from "./RenderWithMap/RenderWithMap";
 // import BaiTapChonXe from "./StateDemo/BaiTapChonXe/BaiTapChonXe";
 
@@ -25,9 +25,9 @@ function App() {
       {/* <StateDemo/> */}
       {/* <BaiTapChonXe /> */}
       {/* <RenderWithMap /> */}
-      <BaiTapThucHanhLayout />
+      {/* <BaiTapThucHanhLayout /> */}
       {/* <DemoProps /> */}
-      {/* <BTQuanLySanPham /> */}
+      <BTQuanLySanPham />
     </div>
   );
 }

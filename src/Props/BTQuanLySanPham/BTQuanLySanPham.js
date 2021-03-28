@@ -88,6 +88,35 @@ export default class BTQuanLySanPham extends Component {
     })
   }
 
+  // State nằm tại component nào thì phương thức xử lí setState xây dựng tại component đó
+  xoaGioHang = (maSP) => {
+    console.log('ma sp', maSP);
+    let gioHangCapNhat = [...this.state.gioHang];
+    let index = gioHangCapNhat.findIndex(spGH => spGH.maSP === maSP);
+    if(index !== -1) {
+      gioHangCapNhat.splice(index, 1);
+    }
+
+    this.setState({
+      gioHang: gioHangCapNhat
+    })
+  }
+
+  tangGiamSoLuong = (maSP, soLuong) => {
+    let gioHangCapNhat = [...this.state.gioHang];
+
+    //tìm sản phẩm trong giỏ hàng
+    let spTangGiamSL = gioHangCapNhat.find(spGH => spGH.maSP === maSP);
+    if(spTangGiamSL) {
+      spTangGiamSL.soLuong += soLuong;
+    }
+
+    //setState giỏ hàng
+    this.setState({
+      gioHang: gioHangCapNhat
+    })
+  }
+
   renderProduct = () => {
     return this.dataProduct.map((product, index) => {
       return (
@@ -108,7 +137,7 @@ export default class BTQuanLySanPham extends Component {
     let { productDetail } = this.state;
     return (
       <div className="container">
-        <GioHang gioHang={this.state.gioHang}/>
+        <GioHang xoaGioHang={this.xoaGioHang} tangGiamSoLuong={this.tangGiamSoLuong} gioHang={this.state.gioHang}/>
         <h3 className="text-center display-4">Danh sách sản phẩm</h3>
         <div className="row">{this.renderProduct()}</div>
 
@@ -120,7 +149,7 @@ export default class BTQuanLySanPham extends Component {
             </div>
             <div className="col-8">
               <h3>Thông tin sản phẩm</h3>
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <td>Tên sản phẩm</td>
